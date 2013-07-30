@@ -6,14 +6,14 @@
 /* Controllers */
 
 function InputCtrl($scope) {
-	$scope.numLayers = [1,2,3,4,5,6];
+	$scope.numLayers = [1,2,3];
 	
   $scope.materials = [
     {"name": " None",
     "value": "none"
      },
     {"name": "Aluminum",
-    "value": "Aluminium"
+    "value": "Aluminum"
      },
     {"name": "Lead",
     "value": "matPb"
@@ -28,4 +28,12 @@ function InputCtrl($scope) {
   ];
 
   $scope.orderProp = 'name';
+  $scope.addLayer = function() {
+    var layerNum = this.numLayers.length + 1;
+    this.numLayers.push(layerNum);
+  }
+  $scope.removeLayer = function() {
+  	var layerNum = this.numLayers.length;
+  	this.numLayers.pop(layerNum);
+  }
 };
