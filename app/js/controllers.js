@@ -36,4 +36,7 @@ function InputCtrl($scope) {
   	var layerNum = this.numLayers.length;
   	this.numLayers.pop(layerNum);
   }
+  $scope.submit = function() {
+  	
+  }
 };

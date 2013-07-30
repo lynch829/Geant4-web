@@ -24,7 +24,7 @@
 						<tr ng-repeat="layer in numLayers">
 							<td> Layer {{layer}}
 								<label>Pick a material</label>
-								<select>
+								<select id='layer{{layer}}'>
 									<option ng-repeat="material in materials | orderBy:orderProp" value="{{material.value}}">{{material.name}}</option>
 								</select>
 							</td>
@@ -43,8 +43,7 @@
 				</table>
 				<button id='add' ng-click="addLayer()">Add a layer</button>
 				<button id='remove' ng-click="removeLayer()">Remove a layer</button>
-
-				<button id='submit'>Submit</button>
+				<button id='submit' ng-click="submit()">Submit</button>
 			</div>
 			<div>
 				<p id='layers'>
@@ -55,7 +54,8 @@
 				</canvas>
 				<p id='graphTitle'>Energy Deposited</p>
 				<canvas id='graph'>
-					
+					<script src="js/draw.js">
+					</script>
 				</canvas>
 			</div>
 			<footer>

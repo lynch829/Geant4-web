@@ -22,6 +22,9 @@ button {
 	position: relative;
 	top:25px;	left: -185px;
 }
+canvas {
+	border: 1px solid black;
+}
 #layerCanvas {
 	background: white;
 	position: absolute;
