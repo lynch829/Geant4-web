@@ -22,3 +22,30 @@ button {
 	position: relative;
 	top:25px;	left: -185px;
 }
+#layerCanvas {
+	background: white;
+	position: absolute;
+	left: 600px;
+	top: 75px;
+	width: 500px;
+	height: 300px;	
+}
+#graph {
+	background: white;
+	position: absolute;
+	left: 600px;
+	top: 450px;
+	width: 500px;
+	height: 300px;
+	
+}
+#graphTitle {
+	position:absolute;
+	left:790px;
+	top:412px;
+}
+#layers {
+	position:absolute;
+	top: 35px;
+	left:820px;
+}
