@@ -29,12 +29,21 @@ function InputCtrl($scope) {
 
   $scope.orderProp = 'name';
   $scope.addLayer = function() {
-    var layerNum = this.numLayers.length + 1;
-    this.numLayers.push(layerNum);
+    if (this.numLayers.length < 30) {
+	    var layerNum = this.numLayers.length + 1;
+	    this.numLayers.push(layerNum);
   }
+  	else {
+  		alert('Sorry, no more than 30 layers.');
+  	}
+ } 	
   $scope.removeLayer = function() {
-  	var layerNum = this.numLayers.length;
-  	this.numLayers.pop(layerNum);
+  	if (this.numLayers.length > 1) {
+	  	var layerNum = this.numLayers.length;
+	  	this.numLayers.pop(layerNum);
+	  } else {
+	  	alert('You need at least 1 layer.')
+	  }
   }
   $scope.submit = function() {
   	
