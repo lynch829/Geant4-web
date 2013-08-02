@@ -5,7 +5,6 @@
 		<title>Remsim</title>
 		<meta name="description" content="" />
 		<meta name="author" content="Christian Lambert" />
-		<script src="js/d3/d3.v3.js"></script>
 		<script src="js/jquery-1.10.1.js"></script>
 		<script src="lib/angular/angular.js"></script>
 		<script src="js/controllers.js"></script>
@@ -23,6 +22,7 @@
 				<table>
 					<tbody>					
 						<tr ng-repeat="layer in numLayers">
+							<form action="">
 							<td> Layer {{layer}}
 								<label>Pick a material</label>
 								<select id='layer{{layer}}'>
@@ -32,13 +32,14 @@
 							<td>
 								Thickness:
 								<input type="text" ng-model="number" required ng-change="{}"/>
-								<select>
+								<select id='thick{{layer}}'>
 									<option value="cm">cm</option>
 									<option value="km">km</option>
 									<option value="m">m</option>
 									<option value="mm">mm</option>
 								</select>
 							</td>
+							</form>
 						</tr>
 					</tbody>			
 				</table>

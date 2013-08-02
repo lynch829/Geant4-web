@@ -5,7 +5,7 @@
 var aluminum = '#999999'
 var water = '#66CCFF';
 var lead = '#3D3D3D';
-var kevlar
+var kevlar;
 
 var layerCanvas = document.getElementById("layerCanvas");
 var layers = layerCanvas.getContext("2d");

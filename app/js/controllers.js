@@ -43,17 +43,21 @@ function InputCtrl($scope) {
   	if (this.numLayers.length > 1) {
 	  	var layerNum = this.numLayers.length;
 	  	this.numLayers.pop(layerNum);
-	  	Layers = numLayers;
+	  	this.Layers = numLayers;
 	  	return Layers;
 	  } else {
-	  	alert('You need at least 1 layer.')
+	  	alert('You need at least 1 layer.');
 	  }
   }
   $scope.submit = function() {
   	//send layer values and thicknesses to server for processing
-  	for (layer in this.numLayers) {
+  	var output = [];
+  	for (var layer in this.numLayers) {
   	//TODO: grab layer info and send it to server. Figure out how to do that.
-  		
+  		var data = document.getElementById('layer' + layer);
+  		var material = document.getElementById('thick' + layer);
+  		output.push();
+  		console.log(output[layer]);
   	};
   }
 };
