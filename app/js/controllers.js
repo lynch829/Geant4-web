@@ -61,31 +61,46 @@ function InputCtrl($scope) {
   	var layer;
   	var data = [];
   	for (layer in this.numLayers) {
-  	//TODO: grab layer info and send it to server. Figure out how to do that.
 		var layerId = 'layer' + (Math.round(layer) + 1);
 		var thickId = 'thick' + (Math.round(layer) + 1);
 		var unitId = 'unit' + (Math.round(layer) + 1);
   		var material = String(document.getElementById(layerId).value);
   		var thick = Number(document.getElementById(thickId).value);
   		var unit = String(document.getElementById(unitId).value);  
-  		console.log(material.typeOf);
-  		console.log(thick.typeOf);
-  		console.log(unit.typeOf);
-  		
-  		if (unit == 'm') {
-  			thick *= 100;
-  			return thick;
-  		}	else if (unit == 'km') {
-  			thick *= 1000 * 100;
-  			return thick;
-  		} else if (unit == 'mm') {
-  			thick *= .1;
-  			return thick;
-  		}
-  		console.log(thick);
-  		data.push({'material':material, 'thickness':thick, 'unit':'cm'});
+  		if (thick.typeOf === NaN) {
+  			alert('Thicknesses need to be a number');
+  			break;
+  		} else if (thick === 0) {
+  			alert('The thicknesses needs to be greater than 0');
+  			break;
+  		} else {
+	  		if (unit == 'm') {
+	  			thick *= 100;
+	  			return thick;
+	  		}	else if (unit == 'km') {
+	  			thick *= 1000 * 100;
+	  			return thick;
+	  		} else if (unit == 'mm') {
+	  			thick *= 0.1;
+	  			return thick;
+	  		}
+	  		console.log(thick);
+	  		data.push({'material':material, 'thickness':thick, 'unit':'cm'});
+		}	
 	};
-	console.log(data);
   	
   }
+  $scope.numberCheck = function() {
+  	for (var layer in this.numLayers) {
+		var thickId = 'thick' + (Math.round(layer) + 1);
+ 		var thick = Number(document.getElementById(thickId).value);
+  	    if (thick.typeOf === NaN) {
+  	    	return 'wrong';
+  		} else if (thick === 0 || thick === '') {
+  			return 'wrong';
+  		} else {
+  			return '';
+  		}
+	}
+	}
 };

@@ -33,7 +33,7 @@
 							</td>
 							<td>
 								Thickness:
-								<input id="thick{{layer}}" type="text" ng-model="number" required ng-change="{}"/>
+								<input id="thick{{layer}}" type="text" ng-model="number" ng-class="numberCheck" defaultValue="0" min="0" /> 
 								<select id='unit{{layer}}'>
 									<option value="cm">cm</option>
 									<option value="km">km</option>
