@@ -17,11 +17,14 @@
 				<h1>Geant4 Web Interface</h1>
 				<br />
 				<a href="about.html" >About</a>
+				<br />
+				<br />
 			</header>
 			<div>
 				<table>
 					<tbody>					
 						<tr ng-repeat="layer in numLayers">
+							<form action="">
 							<td> Layer {{layer}}
 								<label>Pick a material</label>
 								<select id='layer{{layer}}'>
@@ -30,14 +33,15 @@
 							</td>
 							<td>
 								Thickness:
-								<input type="text" ng-model="number" required ng-change="{}"/>
-								<select>
+								<input id="thick{{layer}}" type="text" ng-model="number" ng-class="numberCheck" defaultValue="0" min="0" /> 
+								<select id='unit{{layer}}'>
 									<option value="cm">cm</option>
 									<option value="km">km</option>
 									<option value="m">m</option>
 									<option value="mm">mm</option>
 								</select>
 							</td>
+							</form>
 						</tr>
 					</tbody>			
 				</table>
@@ -50,16 +54,14 @@
 					Layers
 				</p>
 				<canvas id='layerCanvas'>
-					
+				<script src="js/layers.js"></script>	
 				</canvas>
 				<p id='graphTitle'>Energy Deposited</p>
 				<canvas id='graph'>
-					<script src="js/draw.js">
-					</script>
+					<script src="js/graph.js"></script>
 				</canvas>
 			</div>
 			<footer>
-				
 			</footer>
 		</div>
 	</body>

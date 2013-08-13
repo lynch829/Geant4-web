@@ -1,22 +1,15 @@
 /**
  * @author Christian Lambert
-*/ 
+*/
+// Material colors 
+var aluminum = '#999999'
+var water = '#66CCFF';
+var lead = '#3D3D3D';
+var kevlar;
 
-
-$(document).ready(function() {
-	var numLayers = 6;
-	if(numLayers <= 3) {
-		$('#remove').remove();
-	} else if (numLayers >= 30) {
-		$('#new layer').remove();
-	}
-	/*$('#add').on('click', function() {
-		$('tbody').push('<tr ng-repeat="layer in numLayers"><td> Layer {{numLayers}} <label>Pick a material</label><select><option ng-repeat="material in materials | orderBy:orderProp" value="{{material.value}}">{{material.name}}</option></select></td><td>Thickness:<input type="text" ng-model="{number}" required ng-change="{}"/><select><option value="cm">cm</option><option value="km">km</option><option value="m">m</option><option value="mm">mm</option></select></td></tr>');
-		// add a new layer without reloading the site
-	});*/
-	$('#remove').on('click', function() {
-		numLayers--;
-		$('table')
-	});
-});
-
+var layerCanvas = document.getElementById("layerCanvas");
+var layers = layerCanvas.getContext("2d");
+layers.fillStyle=water;
+layers.fillRect(230,75,20,20);
+layers.fillStyle=aluminum;
+layers.fillRect(205,65,20,40);
