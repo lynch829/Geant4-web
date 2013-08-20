@@ -11,7 +11,7 @@
 		<script src="js/layers.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/app.css" /> 
 	</head>
-	<body ng-controller="InputCtrl">
+	<body>
 		<div>
 			<header>
 				<h1>Geant4 Web Interface</h1>
@@ -20,7 +20,7 @@
 				<br />
 				<br />
 			</header>
-			<div>
+			<div ng-controller="InputCtrl">
 				<table>
 					<tbody>					
 						<tr ng-repeat="layer in numLayers">
@@ -49,7 +49,7 @@
 				<button id='remove' ng-click="removeLayer()">Remove a layer</button>
 				<button id='submit' ng-click="submit()">Submit</button>
 			</div>
-			<div>
+			<div ng-controller="CanvasCtrl">
 				<p id='layers'>
 					Layers
 				</p>
