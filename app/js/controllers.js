@@ -57,15 +57,17 @@ function InputCtrl($scope) {
 	  }
   }
   //send layer values and thicknesses to server for processing
-  $scope.submit = function() {
+    $scope.submit = function() {
   	$scope.layer;
-  	for (layer in this.numLayers) {
-		$scope.layerId = 'layer' + (Math.round(layer) + 1);
-		$scope.thickId = 'thick' + (Math.round(layer) + 1);
-		$scope.unitId = 'unit' + (Math.round(layer) + 1);
+  	for (this.layer in this.numLayers) {
+		$scope.layerId = 'layer' + (Math.round(this.layer) + 1);
+		$scope.thickId = 'thick' + (Math.round(this.layer) + 1);
+		$scope.unitId = 'unit' + (Math.round(this.layer) + 1);
   		$scope.material = String(document.getElementById(this.layerId).value);
   		$scope.thick = Number(document.getElementById(this.thickId).value);
   		$scope.unit = String(document.getElementById(this.unitId).value);  
+  		console.log(this.unit);
+  		console.log(this.unit.typeOf);
   		if (this.thick.typeOf === NaN) {
   			alert('Thicknesses need to be a number');
   			break;
@@ -107,14 +109,38 @@ function InputCtrl($scope) {
 };
 function CanvasCtrl($scope) {
   //use to draw the layers and possibly the graph(s)
-  	$scope.aluminum = '#999999'
-	$scope.water = '#66CCFF';
-	$scope.lead = '#3D3D3D';
-	$scope.kevlar;	
-	$scope.layerCanvas = document.getElementById("layerCanvas");
+  	$scope.materials = [
+    {"name": " None",
+    "value": "none",
+    "color": '#FFFFFF'
+     },
+    {"name": "Aluminum",
+    "value": "Aluminum",
+    "color": '#999999'
+     },
+    {"name": "Lead",
+    "value": "matPb",
+    "color": '#3D3D3D'
+     },
+    {"name": "Water",
+    "value": "water",
+    'color':  '#66CCFF'
+     },
+    {"name": "Kevlar",
+    "value": "kevlar",
+    'color': ''
+     }
+ ]
+    $scope.layerCanvas = document.getElementById("layerCanvas");
 	$scope.layers = layerCanvas.getContext("2d");
 	  for (layer in this.numLayers) {
-	  	this.layerId = 'layer' + (Math.round(layer) + 1);
-	  	this.material = String(document.getElementById(this.layerId).value);
+	  	$scope.layerId = 'layer' + (Math.round(layer) + 1);
+	  	$scope.material = String(document.getElementById(this.layerId).value);
+	  	$scope.thickId = 'thick' + (Math.round(layer) + 1);
+		$scope.unitId = 'unit' + (Math.round(layer) + 1);
+  		$scope.material = String(document.getElementById(this.layerId).value);
+  		$scope.thick = Number(document.getElementById(this.thickId).value);
+  		$scope.unit = String(document.getElementById(this.unitId).value);  
+  		
   }
 }
